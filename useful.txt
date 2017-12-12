@@ -1,0 +1,7 @@
+https://www.npmjs.com/package/cordova-plugin-advanced-geolocation
+
+https://github.com/jayrathod/Cordova-Cell-Triangulation
+
+http://www.trimble.com/gps_tutorial/dgps-how.aspx
+
+http://gpsworld.com/google-to-provide-raw-gnss-measurements/
