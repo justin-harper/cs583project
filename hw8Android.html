@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <script>
+  var store = [];
+  var timeout = 0;
+  function thisOne()
+  {
+    doTimeout();
+  }
+
+
+  function getLocation()
+  {
+    var output = document.getElementById('output');
+    if(navigator.geolocation)
+    {
+      navigator.geolocation.getCurrentPosition(showPosition,errorCallback,{timeout:10000})
+    }
+    else
+    {
+      output.innerHTML = "GeoLocation is not supported on this browser";
+    }
+
+  }
+  function doTimeout()
+  {
+    if(timeout < 10)
+    {
+      timeout++;
+      setTimeout(doTimeout, 5000);
+      getLocation();
+    }
+  }
+
+  function showPosition(position)
+  {
+    store.push(position.coords);
+    console.log(position);
+    var output = document.getElementById('output');
+    output.innerHTML = ShowStore();
+    //var x = {lat: position.coords.latitude, lng: position.coords.longitude};
+  }
+  function errorCallback(error)
+  {
+    var output = document.getElementById('output');
+    output.innerHTML = "ERROR getting location";
+    console.log(error);
+  }
+
+  function ShowStore()
+  {
+    var x = "[ "
+    for(var i = 0; i < store.length; i++)
+    {
+      x += "<br>" +  "Lat: " + store[i].latitude + ", Lng: " + store[i].longitude;
+    }
+    x += "<br>]";
+
+    return x;
+  }
+  </script>
+  <body onload="thisOne()">
+    <div>
+      <h1> Stuff &amp Things </h1>
+      <p id="output">HI!</p>
+    </div>
+    <div id="map">
+    </div>
+  <body>
+</html>

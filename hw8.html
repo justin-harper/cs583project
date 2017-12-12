@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map
+      {
+        height: 400px;
+        width: 800px;
+      }
+    </style>
+  </head>
+  <script src="https://maps.googleapis.com/maps/api/js">
+  </script>
+  <script src="hw8.js"></script>
+  <body onload="thisOne()">
+    <div id="controlls">
+      <h1> Stuff &amp Things </h1>
+      <input type="button" id="collection" onclick="collectData()" value="Collect Data">
+      <p id="output"></p>
+    </div>
+    <div id="map">
+    </div>
+    <div id="getData">
+      <p></p>
+      <button id="data1" onclick="getDataSet1()">DataSet1</button>
+      <button id="data2" onclick="getDataSet2()">DataSet2</button>
+    </div>
+  <body>
+</html>
